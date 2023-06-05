@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +16,14 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    return User::query()
+        ->first()
+        ->posts()
+        ->get();
+
+//    return DB::table('users')
+//        ->select('users.user_id', 'post_id')
+//        ->join('posts', 'users.user_id', '=', 'posts.user_id')
+//        ->get();
 });
