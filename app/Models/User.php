@@ -44,10 +44,8 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    protected $primaryKey = 'user_id';
-
     public function posts(): HasMany
     {
-        return $this->hasMany(Post::class, $this->primaryKey, $this->primaryKey);
+        return $this->hasMany(Post::class);
     }
 }

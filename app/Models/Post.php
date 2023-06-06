@@ -10,10 +10,9 @@ class Post extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'post_id';
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class);
     }
 }
